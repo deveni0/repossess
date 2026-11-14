@@ -45,7 +45,6 @@ declare const OptionsSchema: z.ZodObject<{
         email: string;
     } | undefined;
 }>;
-declare const RepoSlugSchema: z.ZodString;
 declare const UploadInputSchema: z.ZodEffects<z.ZodObject<{
     buffer: z.ZodOptional<z.ZodUnion<[z.ZodType<Uint8Array<ArrayBuffer>, z.ZodTypeDef, Uint8Array<ArrayBuffer>>, z.ZodString]>>;
     url: z.ZodOptional<z.ZodString>;
@@ -120,7 +119,6 @@ declare const ListItemSchema: z.ZodObject<{
     size?: number | undefined;
 }>;
 declare const DocSchema: z.ZodRecord<z.ZodString, z.ZodUnknown>;
-declare const IdSchema: z.ZodString;
 type Options = z.input<typeof OptionsSchema>;
 type OptionsParsed = z.output<typeof OptionsSchema>;
 type UploadInput = z.input<typeof UploadInputSchema>;
@@ -207,46 +205,4 @@ declare class StorageFiles {
     destroy(): void;
 }
 
-type Mode = "sqlite" | "json";
-declare class DB<T extends Doc = Doc> {
-    private gh;
-    private repoPath;
-    private cachePath;
-    private store;
-    private sha;
-    private queue;
-    private table;
-    private mode;
-    private useCache;
-    private maxRetries;
-    private sqlite;
-    constructor(gh: GitHub, opts: OptionsParsed, table: string);
-    readonly kind: () => Mode;
-    private load;
-    private loadJson;
-    private loadSqlite;
-    private writeCache;
-    private save;
-    private saveJson;
-    private saveSqlite;
-    create(data: T): Promise<T & {
-        id: string;
-    }>;
-    get(id: string): Promise<(T & {
-        id: string;
-    }) | null>;
-    update(id: string, patch: Partial<T>): Promise<(T & {
-        id: string;
-    }) | null>;
-    delete(id: string): Promise<boolean>;
-    find(filter?: Partial<T>): Promise<(T & {
-        id: string;
-    })[]>;
-    all(): Promise<(T & {
-        id: string;
-    })[]>;
-    count(): Promise<number>;
-    refresh(): Promise<void>;
-}
-
-export { type Collection, DB, type Doc, DocSchema, type FileMeta, GitHub, IdSchema, type ListItem, ListItemSchema, type Options, type OptionsParsed, OptionsSchema, type PutFileResponse, RepoSlugSchema, StorageFiles, type UploadInput, UploadInputSchema, type UploadResult, UploadResultSchema };
+export { type Collection, StorageFiles };

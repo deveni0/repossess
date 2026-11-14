@@ -1,6 +1,6 @@
 {
   "name": "repossess",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use any GitHub repository as a full backend — collections, file uploads, and metadata with JSON or SQLite storage. No external database required.",
   "type": "module",
   "main": "./dist/index.cjs",

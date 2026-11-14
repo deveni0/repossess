@@ -49,7 +49,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "test": "node example/index.js",

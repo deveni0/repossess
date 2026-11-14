@@ -8,7 +8,7 @@ export default defineConfig({
   clean: true,
   splitting: false,
   treeshake: true,
-  minify: false,
+  minify: true,
   target: "es2022",
   outExtension({ format }) {
     return { js: format === "cjs" ? ".cjs" : ".js" };

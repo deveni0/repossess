@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+src/
+build/
+*.tsbuildinfo
+
+# Local cache & data
+.repossess/
+*.cache.json
+*.cache.db
+data.db
+data.db-*
+data.users.json
+data.products.json
+repossess-*.json
+repossess-*.db
+collections/
+test.json
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Temp
+tmp/
+temp/
+*.tmp

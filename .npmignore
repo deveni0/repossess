@@ -1,0 +1,48 @@
+# Source
+src/
+example/
+examples/
+test/
+tests/
+*.ts
+!*.d.ts
+tsconfig.json
+tsup.config.ts
+*.tsbuildinfo
+
+# Dev
+node_modules/
+.git/
+.github/
+.gitignore
+.vscode/
+.idea/
+.editorconfig
+.eslintrc*
+.prettierrc*
+.prettierignore
+
+# Local data & cache
+.repossess/
+collections/
+data.db
+data.db-*
+*.cache.json
+*.cache.db
+repossess-*.json
+repossess-*.db
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+
+# Env & secrets
+.env
+.env.*
+.npmrc
+
+# Package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

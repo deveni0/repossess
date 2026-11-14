@@ -12,6 +12,8 @@
     "resolveJsonModule": true,
     "allowJs": false,
     "checkJs": false,
+    "sourceMap": false,
+    "declarationMap": false,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ES2022", "DOM"]
   },

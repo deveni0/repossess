@@ -7,6 +7,7 @@ declare const OptionsSchema: z.ZodObject<{
     branch: z.ZodDefault<z.ZodString>;
     dir: z.ZodDefault<z.ZodString>;
     storage: z.ZodDefault<z.ZodEnum<["json", "sqlite"]>>;
+    cache: z.ZodDefault<z.ZodBoolean>;
     tmpTtlMinutes: z.ZodDefault<z.ZodNumber>;
     concurrency: z.ZodDefault<z.ZodNumber>;
     committer: z.ZodDefault<z.ZodObject<{
@@ -24,6 +25,7 @@ declare const OptionsSchema: z.ZodObject<{
     branch: string;
     dir: string;
     storage: "json" | "sqlite";
+    cache: boolean;
     tmpTtlMinutes: number;
     concurrency: number;
     committer: {
@@ -35,6 +37,7 @@ declare const OptionsSchema: z.ZodObject<{
     branch?: string | undefined;
     dir?: string | undefined;
     storage?: "json" | "sqlite" | undefined;
+    cache?: boolean | undefined;
     tmpTtlMinutes?: number | undefined;
     concurrency?: number | undefined;
     committer?: {
@@ -214,6 +217,7 @@ declare class DB<T extends Doc = Doc> {
     private queue;
     private table;
     private mode;
+    private useCache;
     private maxRetries;
     private sqlite;
     constructor(gh: GitHub, opts: OptionsParsed, table: string);

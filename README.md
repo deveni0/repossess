@@ -70,6 +70,7 @@ tmpTtlMinutes number 10 TTL for temporary files in minutes
 concurrency number 4 Max parallel GitHub requests
 committer {name, email} bot defaults Git commit author
 
+> Note: storage: "sqlite" requires Node.js 23+ (or 22.5+ with --experimental-sqlite). Otherwise use storage: "json"
 ---
 
 Collections
@@ -104,7 +105,16 @@ Update
 const updated = await users.update(userId, { role: "admin" });
 ```
 
+Unset
+
+```javascript
+const updated = await users.unset(userId, ["age"]);
+// removes the "age" field from the document
+// returns the updated document or null
 Delete
+```
+
+Delete 
 
 ```javascript
 const ok = await users.delete(userId); // true / false

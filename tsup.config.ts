@@ -9,9 +9,17 @@ export default defineConfig({
   splitting: false,
   treeshake: true,
   minify: true,
-  target: "es2022",
+  target: "node22",
   outExtension({ format }) {
     return { js: format === "cjs" ? ".cjs" : ".js" };
   },
-  external: ["@octokit/rest", "zod", "nanoid", "p-limit"],
+  external: [
+    "@octokit/rest",
+    "zod",
+    "nanoid",
+    "p-limit",
+    "node:sqlite",
+    "node:fs",
+    "node:path",
+  ],
 });

@@ -174,6 +174,9 @@ interface Collection<T extends Doc> {
     update(id: string, patch: Partial<T>): Promise<(T & {
         id: string;
     }) | null>;
+    unset(id: string, keys: string[]): Promise<(T & {
+        id: string;
+    }) | null>;
     delete(id: string): Promise<boolean>;
     find(filter?: Partial<T>): Promise<(T & {
         id: string;
